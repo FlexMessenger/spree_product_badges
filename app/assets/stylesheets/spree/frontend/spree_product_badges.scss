@@ -1,0 +1,123 @@
+/*
+#------------------------------------------------------------------------
+  Spree Extension - Product Badges
+#------------------------------------------------------------------------
+# Copyright (C) 2014 FlexMessenger. All Rights Reserved.
+# @license - New BSD License
+# Author: FlexMessenger
+# Websites: http://www.flexmessenger.net
+#------------------------------------------------------------------------
+the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/frontend/all.css'
+*/
+
+ul#products li {
+  position: relative;
+}
+.fl-badges-new {
+    background:image-url("spree/frontend/badges.png") 0 0 no-repeat;
+    position:absolute;
+    top:0;
+    left:0;
+    width:42px;
+    height:42px;
+    z-index:1000;
+}
+.fl-badges-sale {
+    background:image-url("spree/frontend/badges.png") 0 -42px no-repeat;
+    position:absolute;
+    top:0;
+    right:0;
+    width:42px;
+    height:42px;
+    z-index:1000;
+}
+.fl-badges-soldout {
+    background:image-url("spree/frontend/badges.png") 0 -84px no-repeat;
+    position:absolute;
+    top:80px;
+    left:0;
+    width:42px;
+    height:42px;
+    z-index:1000;
+}
+.fl-badges-featured {
+    background:image-url("spree/frontend/badges.png") 0 -126px no-repeat;
+    position:absolute;
+    top:80px;
+    right:0;
+    width:42px;
+    height:42px;
+    z-index:1000;
+}
+.fl-badges-bestselling {
+    background:image-url("spree/frontend/badges.png") 0 -168px no-repeat;
+    position:absolute;
+    top:30px;
+    left:30px;
+    width:89px;
+    height:60px;
+    z-index:1000;
+}
+.fl-badges-new-view {
+    background:image-url("spree/frontend/badges-view.png") 0 0 no-repeat;
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    width:64px;
+    height:64px;
+    z-index:1000;
+}
+/*.fl-badges-sale-view {
+background:image-url("spree/frontend/badges-view.png") 0 -64px no-repeat;
+position:absolute;
+top:230px;
+left:0;
+width:64px;
+height:64px;
+z-index:1000;
+}*/
+.fl-badges-sale-view {
+    background:image-url("spree/frontend/badges-view.png") 0 -481px no-repeat;
+    position:absolute;
+    top:210px;
+    left:90px;
+    width:138px;
+    height:84px;
+    z-index:1000;
+}
+.fl-badges-soldout-view {
+    background:image-url("spree/frontend/badges-view.png") 0 -128px no-repeat;
+    position:absolute;
+    top:-5px;
+    left:-5px;
+    width:64px;
+    height:64px;
+    z-index:1000;
+}
+/*.fl-badges-featured-view {
+background:image-url("spree/frontend/badges-view.png") 0 -192px no-repeat;
+position:absolute;
+top:230px;
+left:250px;
+width:64px;
+height:64px;
+z-index:1000;
+}*/
+.fl-badges-featured-view {
+    background:image-url("spree/frontend/badges-view.png") 0 -343px no-repeat;
+    position:absolute;
+    top:0;
+    right:0;
+    width:134px;
+    height:138px;
+    z-index:1000;
+}
+.fl-badges-bestselling-view {
+    background:image-url("spree/frontend/badges-view.png") 0 -256px no-repeat;
+    position:absolute;
+    top:60px;
+    right:40px;
+    width:128px;
+    height:87px;
+    z-index:1000;
+}
