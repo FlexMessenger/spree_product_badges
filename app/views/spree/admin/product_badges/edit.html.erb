@@ -1,0 +1,60 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:product_badges) %>
+<% end %>
+
+<%= form_tag admin_product_badges_path, :method => :put do %>
+  <div id="preferences" data-hook>
+    <fieldset class="general no-border-top">
+
+      <div class="row">
+      <% @badge_types.each do |type| %>
+        <div class="<% if type == 'category'%>alpha<%else%>omega<%end%>six columns">
+          <fieldset class="security no-border-bottom">
+            <legend align="center"><%= Spree.t("product_#{type}")%></legend>
+            <% @enable_keys.each do |k|
+                key = "#{type}[#{k}]" %>
+                <div class="field">
+                  <%= hidden_field_tag(key, 0, id: "#{type}_#{k}_hidden") %>
+                  <%= check_box_tag(key, 1, false) %>
+                  <%= label_tag(key, Spree.t(k)) + tag(:br) %>
+                </div>
+            <% end %>
+            <%= fields_for type do |f| %>
+                <div class="field" data-hook="admin_product_badge_input_name">
+                  <%= f.label :new_days %>
+                  <%= f.text_field :new_days, class: 'fullwidth' %>
+                </div>
+
+                <div class="field" data-hook="admin_product_badge_input_seo_title">
+                  <%= f.label :best_selling_days %>
+                  <%= f.text_field :best_selling_days, class: 'fullwidth'  %>
+                </div>
+
+                <div class="field" data-hook="admin_product_badge_input_meta_keywords">
+                  <%= f.label :best_selling_products %>
+                  <%= f.text_field :best_selling_products, class: 'fullwidth'  %>
+                </div>
+            <% end %>
+          </fieldset>
+        </div>
+      <% end %>
+      </div>
+
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'refresh' %>
+        <span class="or"><%= Spree.t(:or) %></span>
+        <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), edit_admin_general_settings_url, :class => 'button' %>
+      </div>
+
+    </fieldset>
+  </div>
+
+
+<% end %>
+
+<script>
+  $('#store_default_currency').select2();
+  $('#currency').select2();
+</script>
