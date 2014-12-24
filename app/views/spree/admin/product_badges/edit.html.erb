@@ -9,32 +9,35 @@
     <fieldset class="general no-border-top">
 
       <div class="row">
-      <% @badge_types.each do |type| %>
+      <% @badge_types.each do |type|
+        settings = @settings[type]
+      %>
         <div class="<% if type == 'category'%>alpha<%else%>omega<%end%>six columns">
           <fieldset class="security no-border-bottom">
             <legend align="center"><%= Spree.t("product_#{type}")%></legend>
+
             <% @enable_keys.each do |k|
                 key = "#{type}[#{k}]" %>
                 <div class="field">
                   <%= hidden_field_tag(key, 0, id: "#{type}_#{k}_hidden") %>
-                  <%= check_box_tag(key, 1, false) %>
+                  <%= check_box_tag(key, 1, settings.try("#{k}")) %>
                   <%= label_tag(key, Spree.t(k)) + tag(:br) %>
                 </div>
             <% end %>
             <%= fields_for type do |f| %>
                 <div class="field" data-hook="admin_product_badge_input_name">
                   <%= f.label :new_days %>
-                  <%= f.text_field :new_days, class: 'fullwidth' %>
+                  <%= f.text_field :new_days, class: 'fullwidth', value: settings.new_days %>
                 </div>
 
                 <div class="field" data-hook="admin_product_badge_input_seo_title">
                   <%= f.label :best_selling_days %>
-                  <%= f.text_field :best_selling_days, class: 'fullwidth'  %>
+                  <%= f.text_field :best_selling_days, class: 'fullwidth', value: settings.best_selling_days  %>
                 </div>
 
                 <div class="field" data-hook="admin_product_badge_input_meta_keywords">
                   <%= f.label :best_selling_products %>
-                  <%= f.text_field :best_selling_products, class: 'fullwidth'  %>
+                  <%= f.text_field :best_selling_products, class: 'fullwidth', value: settings.best_selling_products  %>
                 </div>
             <% end %>
           </fieldset>
@@ -53,8 +56,3 @@
 
 
 <% end %>
-
-<script>
-  $('#store_default_currency').select2();
-  $('#currency').select2();
-</script>
