@@ -1,7 +1,5 @@
 module Spree
   HomeController.class_eval do
-    def test
-
-    end
+    helper 'spree/product_badges'
   end
 end
