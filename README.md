@@ -9,7 +9,7 @@ Installation
 Add spree_product_badges to your Gemfile:
 
 ```ruby
-gem 'spree_product_badges'
+gem 'spree_product_badges', :github => 'FlexMessenger/spree_product_badges', :branch => 'master'
 ```
 
 Bundle your dependencies and run the installation generator:
