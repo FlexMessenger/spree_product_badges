@@ -10,7 +10,7 @@
 the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/frontend/all.css'
 */
 
-ul#products li {
+ul#products li, #product-details .container .columns .row {
   position: relative;
 }
 .fl-badges-new {
